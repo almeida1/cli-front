@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css"; // Importa o arquivo de estilos
+import "./ClienteStyles.css"; // Importa o arquivo de estilos
 
 const ClienteView = ({ clientes }) => {
   return (
