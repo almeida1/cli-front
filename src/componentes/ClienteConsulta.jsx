@@ -10,7 +10,7 @@ const ClienteConsulta = () => {
     const fetchCliente = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/v1/clientes/all"
+          "http://cli-back-998bc5582c3e.herokuapp.com/api/v1/clientes/all"
         );
         if (!response.ok) {
           throw new Error("Erro na requisição");
