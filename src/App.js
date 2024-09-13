@@ -1,4 +1,4 @@
-import ClienteConsulta from "./componentes/ClienteConsulta";
+import ClienteMenu from "./componentes/menu/ClienteMenu";
 import "./App.css";
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <div>
         <h3>Gestão de Clientes</h3>
-        <ClienteConsulta />
+        <ClienteMenu />
       </div>
     </div>
   );
