@@ -4,7 +4,7 @@ import "./ClienteStyles.css"; // Importa o arquivo de estilos
 const ClienteView = ({ clientes }) => {
   return (
     <div className="cliente-view">
-      <h3>Lista de Clientes</h3>
+      <h4>Lista de Clientes</h4>
       {clientes.length > 0 ? (
         <table className="cliente-table">
           <thead>

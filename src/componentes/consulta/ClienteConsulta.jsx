@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import ClienteView from "./ClienteView";
 
-const ClienteConsulta = () => {
+const ClienteConsulta = ({ atualizarConsulta }) => {
   const [clientes, setClientes] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchCliente = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const response = await fetch(
           "http://localhost:8080/api/v1/clientes/all"
@@ -24,22 +27,26 @@ const ClienteConsulta = () => {
       }
     };
 
+    // Realiza a consulta sempre que o valor de 'atualizarConsulta' mudar
     fetchCliente();
-  }, []);
+  }, [atualizarConsulta]);
 
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
-
-  if (error) {
-    return <div>Erro: {error}</div>;
-  }
-
-  return clientes ? (
-    <ClienteView clientes={clientes} />
-  ) : (
-    <div>Nenhum cliente encontrado</div>
+  return (
+    <div>
+      {loading && <div>Carregando...</div>}
+      {error && <div>Erro: {error}</div>}
+      {clientes ? (
+        <ClienteView clientes={clientes} />
+      ) : (
+        <div>Nenhum cliente encontrado</div>
+      )}
+    </div>
   );
+};
+
+// Validar a prop
+ClienteConsulta.propTypes = {
+  atualizarConsulta: PropTypes.number.isRequired,
 };
 
 export default ClienteConsulta;

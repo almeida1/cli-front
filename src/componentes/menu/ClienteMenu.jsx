@@ -1,37 +1,38 @@
-import React from "react";
-import ConsultaCliente from "../consulta/ClienteConsulta";
+import React, { useState } from "react";
+import ClienteConsulta from "../consulta/ClienteConsulta";
 
-class ClienteMenu extends React.Component {
-  state = {
-    mostrarConsulta: false,
-  };
+const ClienteMenu = () => {
+  const [mostrarConsulta, setMostrarConsulta] = useState(false);
+  const [atualizarConsulta, setAtualizarConsulta] = useState(0);
 
-  handleCadastrar = () => {
+  const handleCadastrar = () => {
     // Lógica para cadastrar
     console.log("Cadastrar");
   };
 
-  handleConsultar = () => {
+  const handleConsultar = () => {
     // Lógica para consultar
     console.log("Consultar");
-    this.setState({ mostrarConsulta: true });
+    setMostrarConsulta(true);
+    // Atualiza o estado 'atualizarConsulta' para forçar a consulta
+    setAtualizarConsulta((prev) => prev + 1);
   };
 
-  handleAlterar = () => {
+  const handleAlterar = () => {
     // Lógica para alterar
     console.log("Alterar");
   };
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.handleCadastrar}>Cadastrar</button>
-        <button onClick={this.handleConsultar}>Consultar</button>
-        <button onClick={this.handleAlterar}>Alterar</button>
-        {this.state.mostrarConsulta && <ConsultaCliente />}
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <button onClick={handleCadastrar}>Cadastrar</button>
+      <button onClick={handleConsultar}>Consultar</button>
+      <button onClick={handleAlterar}>Alterar</button>
+      {mostrarConsulta && (
+        <ClienteConsulta atualizarConsulta={atualizarConsulta} />
+      )}
+    </div>
+  );
+};
 
 export default ClienteMenu;
