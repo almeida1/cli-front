@@ -6,7 +6,7 @@ const ClienteView = ({ clientes }) => {
     <div className="cliente-view">
       <h4>Lista de Clientes</h4>
       {clientes.length > 0 ? (
-        <table className="cliente-table">
+        <table id="tabela_consulta" className="cliente-table">
           <thead>
             <tr>
               <th>ID</th>

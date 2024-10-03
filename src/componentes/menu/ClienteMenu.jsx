@@ -25,9 +25,15 @@ const ClienteMenu = () => {
 
   return (
     <div>
-      <button onClick={handleCadastrar}>Cadastrar</button>
-      <button onClick={handleConsultar}>Consultar</button>
-      <button onClick={handleAlterar}>Alterar</button>
+      <button id="cadastrar" onClick={handleCadastrar}>
+        Cadastrar
+      </button>
+      <button id="consultar" onClick={handleConsultar}>
+        Consultar
+      </button>
+      <button id="alterar" onClick={handleAlterar}>
+        Alterar
+      </button>
       {mostrarConsulta && (
         <ClienteConsulta atualizarConsulta={atualizarConsulta} />
       )}
