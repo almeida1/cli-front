@@ -13,7 +13,7 @@ const ClienteConsulta = ({ atualizarConsulta }) => {
       setError(null);
       try {
         const response = await fetch(
-          "https://cli-back-998bc5582c3e.herokuapp.com/api/v1/clientes/all"
+          "https://cli-back-da94521f4063.herokuapp.com/api/v1/clientes/all"
         );
         if (!response.ok) {
           throw new Error("Erro na requisição");
