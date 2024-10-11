@@ -14,8 +14,8 @@ const ClienteConsulta = ({ atualizarConsulta }) => {
       setError(null);
       try {
         const response = await fetch(
-          // Alterar a URL para a API de clientes - "https://cli-back-da94521f4063.herokuapp.com/api/v1/clientes/all"
-          "http://localhost:8080/api/v1/clientes/all"
+          "https://cli-back-da94521f4063.herokuapp.com/api/v1/clientes/all"
+          // Alterar a URL para a API de clientes - "http://localhost:8080/api/v1/clientes/all"
         );
         if (!response.ok) {
           throw new Error("Erro na requisição");
