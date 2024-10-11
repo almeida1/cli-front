@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ClienteView from "./ClienteView";
+import "./ClienteStyles.css";
 
 const ClienteConsulta = ({ atualizarConsulta }) => {
   const [clientes, setClientes] = useState(null);
@@ -13,7 +14,8 @@ const ClienteConsulta = ({ atualizarConsulta }) => {
       setError(null);
       try {
         const response = await fetch(
-          "https://cli-back-da94521f4063.herokuapp.com/api/v1/clientes/all"
+          // Alterar a URL para a API de clientes - "https://cli-back-da94521f4063.herokuapp.com/api/v1/clientes/all"
+          "http://localhost:8080/api/v1/clientes/all"
         );
         if (!response.ok) {
           throw new Error("Erro na requisição");

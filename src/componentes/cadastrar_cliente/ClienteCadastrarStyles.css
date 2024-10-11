@@ -1,0 +1,54 @@
+/* ClienteCadastrarStyles.css */
+.cliente-cadastrar-view {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.cliente-cadastrar-view h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cliente-cadastrar-view form {
+  display: flex;
+  flex-direction: column;
+}
+
+.cliente-cadastrar-view label {
+  margin-bottom: 5px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.cliente-cadastrar-view input {
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.cliente-cadastrar-view button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cliente-cadastrar-view button:hover {
+  background-color: #218838;
+}
+
+.cliente-cadastrar-view p {
+  margin-top: 20px;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
