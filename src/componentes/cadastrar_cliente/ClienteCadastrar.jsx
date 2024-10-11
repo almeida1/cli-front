@@ -1,7 +1,6 @@
 const ClienteCadastrar = async (cliente) => {
   try {
     const response = await fetch(
-      //"http://localhost:8080/api/v1/clientes",
       "https://cli-back-da94521f4063.herokuapp.com/api/v1/clientes",
       {
         method: "POST",
