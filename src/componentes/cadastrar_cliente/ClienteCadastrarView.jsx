@@ -18,7 +18,8 @@ const ClienteCadastrarView = () => {
     const result = await ClienteCadastrar(cliente);
 
     if (result.success) {
-      setMensagem("Cliente cadastrado com sucesso!");
+      setMensagem("Cliente cadastrado com sucesso");
+      console.log(result.data);
     } else {
       setMensagem(`Erro: ${result.error}`);
     }
@@ -58,9 +59,10 @@ const ClienteCadastrarView = () => {
             required
           />
         </div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Confirmar</button>
       </form>
-      {mensagem && <p>{mensagem}</p>}
+      {/* Label para mostrar a mensagem com data-testid */}
+      {mensagem && <p data-testid="mensagem">{mensagem}</p>}
     </div>
   );
 };
