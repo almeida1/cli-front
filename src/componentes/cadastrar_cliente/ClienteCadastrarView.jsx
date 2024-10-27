@@ -14,17 +14,20 @@ const ClienteCadastrarView = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const cliente = { cpf, nome, cep };
+    try {
+      const result = await ClienteCadastrar(cliente);
 
-    const result = await ClienteCadastrar(cliente);
-
-    if (result.success) {
-      setMensagem("Cliente cadastrado com sucesso");
-      console.log(result.data);
-    } else {
-      setMensagem(`Erro: ${result.error}`);
+      if (result.data) {
+        setMensagem("Cliente cadastrado com sucesso");
+        console.log(result.data);
+      } else {
+        console.log(`Erro componente cadastrar view: ${result.error}`);
+        setMensagem(`Erro componente cadastrar view`);
+      }
+    } catch (error) {
+      setMensagem(`Erro não esperado cadastrar view: ${error.message}`);
     }
   };
-
   return (
     <div className="cliente-cadastrar-view">
       <h3>Cadastrar Cliente</h3>

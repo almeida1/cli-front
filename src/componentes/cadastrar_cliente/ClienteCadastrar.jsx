@@ -1,18 +1,16 @@
 const ClienteCadastrar = async (cliente) => {
   try {
-    const response = await fetch(
-      "https://cli-back-da94521f4063.herokuapp.com/api/v1/clientes",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cliente),
-      }
-    );
+    const response = await fetch("http://localhost:8080/api/v1/clientes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cliente),
+    });
 
     if (!response.ok) {
-      throw new Error("Falha ao cadastrar cliente");
+      console.log("erro detectado no fetch =>", response);
+      throw new Error("erro componente fetch");
     }
 
     const data = await response.json();
