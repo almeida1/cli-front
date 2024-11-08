@@ -31,7 +31,7 @@ test("ct03 - cadastrar cliente com sucesso", async () => {
   // quando entro com os dados e confirmo a operacao
   // simula a entrada de dados nos campos de CPF, nome e CEP
   fireEvent.change(screen.getByLabelText("CPF:"), {
-    target: { value: "08159711093" },
+    target: { value: "40057173060" },
   });
   fireEvent.change(screen.getByLabelText("Nome:"), {
     target: { value: "Jose da Silva" },
@@ -52,36 +52,4 @@ test("ct03 - cadastrar cliente com sucesso", async () => {
 
   // Verifica se a mensagem está presente no documento
   expect(successMessage).toBeInTheDocument();
-});
-
-test("ct04 - cadastrar cliente sem conexao com o backend", async () => {
-  // dado que o backend nao esta conectado
-  render(<Menu />);
-  // Localiza o botão "Cadastrar"
-  const submitButton1 = screen.getByText("Cadastrar");
-  fireEvent.click(submitButton1);
-  // quando entro com os dados e confirmo a operacao
-  // simula a entrada de dados nos campos de CPF, nome e CEP
-  fireEvent.change(screen.getByLabelText("CPF:"), {
-    target: { value: "08159711093" },
-  });
-  fireEvent.change(screen.getByLabelText("Nome:"), {
-    target: { value: "Jose da Silva" },
-  });
-  fireEvent.change(screen.getByLabelText("CEP:"), {
-    target: { value: "01310-930" },
-  });
-
-  // Localiza e clica no botão "Confirmar"
-  const submitButton2 = screen.getByText("Confirmar");
-
-  fireEvent.click(submitButton2);
-
-  // Entao retorna mensagem de falha na renderização assíncrona
-  //const successMessage = await waitFor(() =>
-  // screen.getByText(/Erro: falha no cadastro/)
-  //);
-
-  // Verifica se a mensagem está presente no documento
-  //expect(successMessage).toBeInTheDocument();
 });
