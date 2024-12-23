@@ -14,6 +14,7 @@ const ClienteView = ({ clientes }) => {
               <th>Nome</th>
               <th>CEP</th>
               <th>Endereço</th>
+              <th>e-mail</th>
               <th>Data de Cadastro</th>
             </tr>
           </thead>
@@ -25,6 +26,7 @@ const ClienteView = ({ clientes }) => {
                 <td>{cliente.nome}</td>
                 <td>{cliente.cep}</td>
                 <td>{cliente.endereco}</td>
+                <td>{cliente.email}</td>
                 <td>{cliente.dataCadastro}</td>
               </tr>
             ))}

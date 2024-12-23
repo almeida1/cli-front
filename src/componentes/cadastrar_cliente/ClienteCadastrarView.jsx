@@ -10,10 +10,11 @@ const ClienteCadastrarView = () => {
   const [mensagem, setMensagem] = useState("");
   const [cpf, setCpf] = useState("");
   const [cep, setCep] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const cliente = { cpf, nome, cep };
+    const cliente = { cpf, nome, cep, email };
     try {
       const result = await ClienteCadastrar(cliente);
 
@@ -22,7 +23,7 @@ const ClienteCadastrarView = () => {
         console.log(result.data);
       } else {
         console.log(`Erro componente cadastrar view: ${result.error}`);
-        setMensagem(`Erro componente cadastrar view`);
+        setMensagem(`Erro componente cadastrar view: ${result.error}`);
       }
     } catch (error) {
       setMensagem(`Erro não esperado cadastrar view: ${error.message}`);
@@ -59,6 +60,16 @@ const ClienteCadastrarView = () => {
             type="text"
             value={cep}
             onChange={(e) => setCep(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email">e-mail:</label>
+          <input
+            id="email"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>

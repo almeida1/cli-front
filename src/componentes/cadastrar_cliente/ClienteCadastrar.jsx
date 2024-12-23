@@ -1,6 +1,6 @@
 const ClienteCadastrar = async (cliente) => {
   try {
-    const response = await fetch("http://localhost:8080/api/v1/clientes", {
+    const response = await fetch("http://localhost:8081/api/v1/clientes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -10,7 +10,7 @@ const ClienteCadastrar = async (cliente) => {
 
     if (!response.ok) {
       console.log("erro detectado no fetch =>", response);
-      throw new Error("erro componente fetch");
+      throw new Error("dados inválidos ");
     }
 
     const data = await response.json();
